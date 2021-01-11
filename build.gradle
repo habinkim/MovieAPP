@@ -8,8 +8,13 @@ plugins {
 group = 'com.habin'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'
+sourceCompatibility = '11'
 
 configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -23,6 +28,13 @@ ext {
 	set('snippetsDir', file("build/generated-snippets"))
 }
 
+// QueryDSL Version
+def queryDSLVersion = '4.2.2'
+// QueryDSL PATH
+def generated = "src/main/generated"
+
+def lombokVersion = '1.18.16'
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-batch'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -32,15 +44,40 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.junit.jupiter:junit-jupiter-api'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	implementation 'org.springframework.session:spring-session-data-redis'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'mysql:mysql-connector-java'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.1'
+	implementation 'mysql:mysql-connector-java'
+	implementation 'org.mapstruct:mapstruct:1.4.1.Final'
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	compile("com.querydsl:querydsl-core:${queryDSLVersion}")
+	compile("com.querydsl:querydsl-jpa:${queryDSLVersion}")
+	compile("com.querydsl:querydsl-apt:${queryDSLVersion}")
+	annotationProcessor(
+			"org.springframework.boot:spring-boot-configuration-processor",
+			"org.mapstruct:mapstruct-processor:1.4.1.Final",
+			"com.querydsl:querydsl-apt:${queryDSLVersion}:jpa",
+			"org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final",
+			"javax.annotation:javax.annotation-api",
+			"org.projectlombok:lombok:${lombokVersion}"
+	)	
+	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+    compile group: 'net.coobird', name: 'thumbnailator', version: '0.4.13'
+    compile group: 'commons-io', name: 'commons-io', version: '2.8.0'
+    compile group: 'commons-fileupload', name: 'commons-fileupload', version: '1.4'
+    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.6.2'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
 	testImplementation 'org.springframework.batch:spring-batch-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 	testImplementation 'org.springframework.security:spring-security-test'
