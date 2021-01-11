@@ -2,11 +2,14 @@ package com.habin.MovieAPP.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.habin.MovieAPP.entity.enums.Nationality;
 import com.habin.MovieAPP.entity.history.BaseEntity;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -39,6 +42,10 @@ public class Director extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(length = 20)
     private Long directorId; // 아이디
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Nationality nationality; // 국적
 
     @Column(nullable = false, length = 40)
     private String directorNm; // 감독명

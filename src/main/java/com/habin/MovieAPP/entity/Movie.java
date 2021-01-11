@@ -25,6 +25,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.habin.MovieAPP.entity.enums.Genre;
+import com.habin.MovieAPP.entity.enums.Nationality;
 import com.habin.MovieAPP.entity.enums.Rate;
 import com.habin.MovieAPP.entity.history.BaseEntity;
 
@@ -73,6 +74,10 @@ public class Movie extends BaseEntity {
 
     @Column(length = 1000, nullable = true)
     private String movieDesc; // 설명
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Nationality nationality; // 국적
 
     @ElementCollection(targetClass = Genre.class)
     @CollectionTable

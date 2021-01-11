@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.habin.MovieAPP.entity.enums.Gender;
+import com.habin.MovieAPP.entity.enums.Nationality;
 import com.habin.MovieAPP.entity.history.BaseEntity;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -61,6 +62,16 @@ public class Actor extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Gender gender; // 성별
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Nationality nationality; // 국적
+
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
+    private LocalDate birthDate; // 생년월일
+
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -70,11 +81,5 @@ public class Actor extends BaseEntity {
     @JsonManagedReference // 양방향 관계에서의 JSON 부참조 객체 파싱
 	@OneToMany(mappedBy = "movieCastId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MovieCast> movieCast; // 출연 정보
-
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    @JsonSerialize(using = LocalDateSerializer.class)
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(nullable = false)
-    private LocalDate birthDate; // 생년월일
     
 }

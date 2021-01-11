@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.habin.MovieAPP.entity.enums.Cast;
+import com.habin.MovieAPP.entity.enums.Yn;
 import com.habin.MovieAPP.entity.history.BaseEntity;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -55,6 +56,10 @@ public class MovieCast extends BaseEntity {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Cast castType; // 관람등급
+    private Cast castType; // 연기 포지션
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Yn debutYn; // 데뷔작 여부
 
 }
