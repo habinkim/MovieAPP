@@ -1,6 +1,7 @@
 package com.habin.MovieAPP.entity;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,7 +24,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import com.habin.MovieAPP.entity.enums.Genre;
 import com.habin.MovieAPP.entity.enums.Nationality;
 import com.habin.MovieAPP.entity.enums.Rate;
@@ -73,7 +76,7 @@ public class Movie extends BaseEntity {
     private List<MovieCast> movieCast; // 출연진
 
     @Column(length = 1000, nullable = true)
-    private String movieDesc; // 설명
+    private String synopsis; // 설명
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -88,8 +91,11 @@ public class Movie extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Rate movieRate; // 관람등급
 
+    @JsonDeserialize(using = LocalTimeDeserializer.class)
+    @JsonSerialize(using = LocalTimeSerializer.class)
+	@DateTimeFormat(pattern = "HH:mm:ss")
     @Column(nullable = false)
-    private String runningTime; // 상영시간
+    private LocalTime runningTime; // 상영시간
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)

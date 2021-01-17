@@ -44,7 +44,6 @@ public class MovieCast extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(length = 20)
     private Long movieCastId;
 
     @JsonBackReference
