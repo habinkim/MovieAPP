@@ -4,8 +4,8 @@ spring:
             enabled: true
     datasource:
         url: jdbc:mariadb://34.64.151.20:3306/Movie?useSSL=false&useUnicode=true&characterEncoding=utf8_general_ci
-        username: danny9643
-        password: danny31
+    ​    username: danny9643
+    ​    password: rlagkqls1324
         driver-class-name: org.mariadb.jdbc.Driver
         initialization-mode: always
         hikari:
