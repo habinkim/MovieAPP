@@ -3,9 +3,9 @@ spring:
         restart:
             enabled: true
     datasource:
-        url: jdbc:mariadb://127.0.0.1:3306/DB_MOVIE?useSSL=false&useUnicode=true&characterEncoding=utf8_general_ci
-        username: root
-        password: 1234
+        url: jdbc:mariadb://34.64.151.20:3306/Movie?useSSL=false&useUnicode=true&characterEncoding=utf8_general_ci
+        username: danny9643
+        password: danny31
         driver-class-name: org.mariadb.jdbc.Driver
         initialization-mode: always
         hikari:
@@ -51,4 +51,4 @@ server:
     enabled: true
 custom:
   path:
-    upload-images: '/home/chacha/upload'
+    upload-images: '/home/habin/upload'
