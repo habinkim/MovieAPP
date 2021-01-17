@@ -36,11 +36,11 @@ def generated = "src/main/generated"
 def lombokVersion = '1.18.16'
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	// implementation 'org.springframework.boot:spring-boot-starter-batch'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	// implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
-	implementation 'org.springframework.boot:spring-boot-starter-quartz'
+	// implementation 'org.springframework.boot:spring-boot-starter-quartz'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -60,12 +60,12 @@ dependencies {
 	compile("com.querydsl:querydsl-jpa:${queryDSLVersion}")
 	compile("com.querydsl:querydsl-apt:${queryDSLVersion}")
 	annotationProcessor(
-			"org.springframework.boot:spring-boot-configuration-processor",
-			"org.mapstruct:mapstruct-processor:1.4.1.Final",
-			"com.querydsl:querydsl-apt:${queryDSLVersion}:jpa",
-			"org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final",
-			"javax.annotation:javax.annotation-api",
-			"org.projectlombok:lombok:${lombokVersion}"
+		"org.springframework.boot:spring-boot-configuration-processor",
+		"org.mapstruct:mapstruct-processor:1.4.1.Final",
+		"com.querydsl:querydsl-apt:${queryDSLVersion}:jpa",
+		"org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final",
+		"javax.annotation:javax.annotation-api",
+		"org.projectlombok:lombok:${lombokVersion}"
 	)	
 	compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
@@ -81,6 +81,14 @@ dependencies {
 	testImplementation 'org.springframework.batch:spring-batch-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+sourceSets {
+	main.java.srcDirs += [ generated ]
+}
+
+tasks.withType(JavaCompile) {
+	options.annotationProcessorGeneratedSourcesDirectory = file(generated)
 }
 
 test {

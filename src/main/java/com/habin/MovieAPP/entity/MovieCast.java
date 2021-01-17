@@ -8,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -47,11 +48,13 @@ public class MovieCast extends BaseEntity {
     private Long movieCastId;
 
     @JsonBackReference
-	@ManyToOne(fetch = FetchType.LAZY) // N : 1 관계 (셀프 조인)
+    @ManyToOne(fetch = FetchType.LAZY) // N : 1 관계 (셀프 조인)
+    @JoinColumn(nullable = true, name = "movieId", referencedColumnName = "movieId")
     private Movie movie; // 영화
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = true, name = "actorId", referencedColumnName = "actorId")
     private Actor actor; // 배우
 
     @Column(nullable = false)
