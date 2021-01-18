@@ -54,7 +54,7 @@ public class User extends BaseEntity implements UserDetails {
 	@Builder.Default
 	@Enumerated(EnumType.STRING)
 	private List<Role> roles = new ArrayList<>();
-
+ 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return this.roles.stream().map(r -> new SimpleGrantedAuthority(r.getValue())).collect(Collectors.toList());
