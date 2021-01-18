@@ -95,7 +95,7 @@ public class Movie extends BaseEntity {
     @JsonSerialize(using = LocalTimeSerializer.class)
 	@DateTimeFormat(pattern = "HH:mm:ss")
     @Column(nullable = false)
-    private LocalTime runningTime; // 상영시간
+    private LocalTime runningTime; // 러닝타임
 
     @JsonDeserialize(using = LocalDateDeserializer.class)
     @JsonSerialize(using = LocalDateSerializer.class)

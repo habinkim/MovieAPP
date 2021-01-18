@@ -6,6 +6,8 @@ import java.time.temporal.ChronoUnit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +24,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.habin.MovieAPP.entity.enums.ScrType;
+import com.habin.MovieAPP.entity.enums.Theater;
 import com.habin.MovieAPP.entity.history.BaseEntity;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -49,6 +52,10 @@ public class Screening extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = true, name = "movieId", referencedColumnName = "movieId")
     private Movie movie;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Theater theater; 
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)
@@ -79,7 +86,7 @@ public class Screening extends BaseEntity {
 
         } else {
 
-            return ScrType.NORMAL;
+            return ScrType.LATE_NIGHT;
 
         }
 
