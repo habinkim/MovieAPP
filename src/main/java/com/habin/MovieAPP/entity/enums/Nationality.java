@@ -12,7 +12,7 @@ package com.habin.MovieAPP.entity.enums;
 
 public enum Nationality {
 
-    USA(1), CHINA(2), JAPAN(3), KOREA(4), FRANCE(5), DENMARK(6), RUSSIA(7), AUSTRALIA(8), INDIA(9);
+    USA(1), UK(2), CHINA(3), JAPAN(4), KOREA(5), FRANCE(6), DENMARK(7), RUSSIA(8), AUSTRALIA(9), INDIA(10);
 
     Nationality(int value) {
         this.value = value;

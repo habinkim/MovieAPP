@@ -48,12 +48,12 @@ public class MovieCast extends BaseEntity {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY) // N : 1 관계 (셀프 조인)
-    @JoinColumn(nullable = true, name = "movieId", referencedColumnName = "movieId")
+    @JoinColumn(nullable = true, name = "movie", referencedColumnName = "movieId")
     private Movie movie; // 영화
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = true, name = "actorId", referencedColumnName = "actorId")
+    @JoinColumn(nullable = true, name = "actor", referencedColumnName = "actorId")
     private Actor actor; // 배우
 
     @Column(nullable = false)

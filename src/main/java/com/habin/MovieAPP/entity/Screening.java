@@ -23,8 +23,8 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.habin.MovieAPP.entity.enums.Hall;
 import com.habin.MovieAPP.entity.enums.ScrType;
-import com.habin.MovieAPP.entity.enums.Theater;
 import com.habin.MovieAPP.entity.history.BaseEntity;
 
 import org.hibernate.annotations.DynamicUpdate;
@@ -34,6 +34,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+
+/**
+* @author : 김하빈(hbkim@bpnsolution.com)
+* * @description : 상영 정보 Entity 클래스
+* ! 
+* ? 
+* TODO : 
+* @Date : 2021. 01. 19
+* @Time : 11:27:23
+*/
 
 @SuperBuilder(toBuilder = true)
 @Getter
@@ -50,12 +60,12 @@ public class Screening extends BaseEntity {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = true, name = "movieId", referencedColumnName = "movieId")
+    @JoinColumn(nullable = true, name = "movie", referencedColumnName = "movieId")
     private Movie movie;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Theater theater; 
+    private Hall hall; 
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)

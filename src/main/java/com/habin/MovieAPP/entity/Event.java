@@ -48,6 +48,7 @@ public class Event extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private List<EventType> eventType;
 
-    
+    @Column(nullable = false, length = 700)
+    private String eventDesc;
     
 }

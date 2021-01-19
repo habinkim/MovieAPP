@@ -68,7 +68,7 @@ public class Movie extends BaseEntity {
     private String movieNm; // 제목
 
     @ManyToOne(fetch = FetchType.LAZY) // N : 1 외래키
-	@JoinColumn(nullable = false, name = "directorNm", referencedColumnName = "directorNm")
+	@JoinColumn(nullable = false, name = "director", referencedColumnName = "directorNm")
     private Director director; // 감독
 
     @JsonManagedReference

@@ -9,11 +9,11 @@ package com.habin.MovieAPP.entity.enums;
 * @Date : 2021. 01. 14
 * @Time : 17:11:05
 */
-public enum Theater {
+public enum Hall {
 
     ONE(1), TWO(2), THREE(3), FDX(4), FIVE(5), IMAX(6), ART(7);
 
-    Theater(int value) {
+    Hall(int value) {
         this.value = value;
     }
 

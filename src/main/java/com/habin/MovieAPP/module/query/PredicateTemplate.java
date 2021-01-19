@@ -17,6 +17,7 @@ import com.habin.MovieAPP.entity.enums.SearchCond;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.core.types.dsl.DateTimePath;
 import com.querydsl.core.types.dsl.EnumPath;
 import com.querydsl.core.types.dsl.NumberPath;
@@ -63,11 +64,15 @@ public class PredicateTemplate {
 		return this;
 	}
 
-	public PredicateTemplate containsStringDesc(StringPath column1, StringPath column2, String value) {
+	public PredicateTemplate containsStrings(List<StringPath> columns, String value) {
 
 		if(StringUtils.hasText(value)) {
 			predicateBuilders.add(new BooleanBuilder()
-					.andAnyOf(column2.contains(value), column2.contains(value)));
+				.andAnyOf(columns.stream()
+					.map(c -> c.contains(value))
+					.toArray(BooleanExpression[]::new)
+				)
+			);
 		}
 
 		return this;

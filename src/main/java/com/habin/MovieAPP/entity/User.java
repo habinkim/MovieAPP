@@ -29,6 +29,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+/**
+* @author : 김하빈(hbkim@bpnsolution.com)
+* * @description : 사용자 Entity 클래스
+* ! 
+* ? 
+* TODO : 
+* @Date : 2021. 01. 19
+* @Time : 12:31:43
+*/
+
 @SuperBuilder(toBuilder = true)
 @Getter
 @Entity
