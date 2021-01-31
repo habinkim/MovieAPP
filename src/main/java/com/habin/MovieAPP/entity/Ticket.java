@@ -1,5 +1,7 @@
 package com.habin.MovieAPP.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 import com.habin.MovieAPP.entity.history.BaseEntity;
@@ -50,5 +53,29 @@ public class Ticket extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = true, name = "movie", referencedColumnName = "scrId")
     private Screening screening;
+
+	@Column(nullable = false, length = 20)
+    private String ticketCode;
+
+    @PrePersist
+    public void setTicketCode() {
+
+        String userId = user.getUserId();
+        LocalDateTime scrStartTime = screening.getScrStartTime();
+        LocalDateTime scrEndTime = screening.getScrEndTime();
+        String movieNm = screening.getMovie().getMovieNm();
+        String hall = screening.getHall().toString();
+
+        ticketCode = new StringBuilder()
+        .append(userId).append("_")
+        .append(movieNm).append("_")
+        .append(hall).append("_")
+        .append(String.valueOf(scrStartTime.getYear())).append("_")
+        .append(String.valueOf(scrStartTime.getMonthValue())).append("_")
+        .append(scrStartTime.getDayOfMonth() != scrEndTime.getDayOfMonth() ? 
+                String.valueOf(scrStartTime.getDayOfMonth() + "/" + scrEndTime.getDayOfMonth()) : String.valueOf(scrStartTime.getDayOfMonth()))
+        .toString();
+                                 
+    }
     
 }

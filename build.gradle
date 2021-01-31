@@ -29,7 +29,7 @@ ext {
 }
 
 // QueryDSL Version
-def queryDSLVersion = '4.2.2'
+def queryDSLVersion = '4.4.0'
 // QueryDSL PATH
 def generated = "src/main/generated"
 
