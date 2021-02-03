@@ -3,8 +3,12 @@ package com.habin.MovieAPP.entity;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapKeyEnumerated;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -25,12 +30,14 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.habin.MovieAPP.entity.enums.Hall;
 import com.habin.MovieAPP.entity.enums.ScrType;
+import com.habin.MovieAPP.entity.enums.Yn;
 import com.habin.MovieAPP.entity.history.BaseEntity;
 
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -65,7 +72,12 @@ public class Screening extends BaseEntity {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private Hall hall; 
+    private Hall hall;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+	@Builder.Default
+    @MapKeyEnumerated(value = EnumType.STRING)
+    private Map<Yn, List<Seat>> seatStatus = new HashMap<>(); // 예매 가능 좌석 현황
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @JsonSerialize(using = LocalDateTimeSerializer.class)

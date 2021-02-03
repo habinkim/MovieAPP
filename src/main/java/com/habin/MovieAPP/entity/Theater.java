@@ -1,35 +1,36 @@
 package com.habin.MovieAPP.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.habin.MovieAPP.entity.enums.Rating;
+import com.habin.MovieAPP.entity.enums.Hall;
 import com.habin.MovieAPP.entity.history.BaseEntity;
 
 import org.hibernate.annotations.DynamicUpdate;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 /**
 * @author : 김하빈(hbkim@bpnsolution.com)
-* * @description : 영화 리뷰 Entity 클래스
+* * @description : 상영관 Entity 클래스
 * ! 
 * ? 
 * TODO : 
 * @Date : 2021. 02. 03
-* @Time : 11:11:54
+* @Time : 13:00:36
 */
 
 @SuperBuilder(toBuilder = true)
@@ -38,19 +39,16 @@ import lombok.experimental.SuperBuilder;
 @DynamicUpdate
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "TB_REVIEW")
-public class Review extends BaseEntity {
+@Table(name = "TB_THEATER")
+public class Theater extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long revId;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = true, name = "movie", referencedColumnName = "movieId")
-    private Movie movie;
-
-    @Column(nullable = false)
+	@Id
     @Enumerated(EnumType.STRING)
-    private Rating rating;
+    private Hall hall;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+	@Builder.Default
+	@Column(nullable = false)
+    private List<Seat> seat = new ArrayList<>();
     
 }

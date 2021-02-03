@@ -79,7 +79,7 @@ public class Actor extends BaseEntity {
     private LocalDate debutDate; // 데뷔일
 
     @JsonManagedReference // 양방향 관계에서의 JSON 부참조 객체 파싱
-	@OneToMany(mappedBy = "movieCast", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "actor", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MovieCast> movieCast; // 출연 정보
     
 }

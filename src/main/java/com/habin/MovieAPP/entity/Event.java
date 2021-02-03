@@ -3,6 +3,7 @@ package com.habin.MovieAPP.entity;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -44,7 +45,8 @@ public class Event extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long eventId;
 
-    @Column(nullable = false)
+    @ElementCollection(targetClass = EventType.class)
+    @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)
     private List<EventType> eventType;
 
