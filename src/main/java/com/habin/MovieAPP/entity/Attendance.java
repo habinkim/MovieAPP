@@ -53,7 +53,7 @@ public class Attendance extends BaseEntity {
     private Long atdIdx;
 
     @ManyToOne(fetch = FetchType.LAZY) // N : 1 외래키
-	@JoinColumn(nullable = false, name = "user", referencedColumnName = "userId")
+	@JoinColumn(nullable = false, name = "userId", referencedColumnName = "userId")
     private User employee; // 직원
 
     @Column(nullable = false)

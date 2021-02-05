@@ -3,6 +3,7 @@ package com.habin.MovieAPP.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
@@ -32,14 +33,16 @@ import lombok.experimental.SuperBuilder;
 public class Theater extends BaseEntity {
 
     @Id
+    @Column(length = 10)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long thId;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10)
     @Enumerated(EnumType.STRING)
     private Hall hall;
 
     @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name="VIEW_SEAT_INFO")
     @Builder.Default
     @Embedded
     private List<Seat> seatInfo = new ArrayList<>();

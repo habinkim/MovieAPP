@@ -6,8 +6,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -17,7 +19,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -65,7 +66,7 @@ public class Screening extends BaseEntity {
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = true, name = "movie", referencedColumnName = "movieId")
+    @JoinColumn(nullable = true, name = "movieId", referencedColumnName = "movieId")
     private Movie movie;
 
     @Column(nullable = false)
@@ -73,8 +74,9 @@ public class Screening extends BaseEntity {
     private Hall hall;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @OneToMany(mappedBy = "screening")
-	@Builder.Default
+    @CollectionTable(name="VIEW_SEAT_STATUS")
+    @Builder.Default
+    @Embedded
     private List<SeatStatus> seatStatus = new ArrayList<>(); // 예매 가능 좌석 현황
 
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)

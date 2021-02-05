@@ -2,6 +2,7 @@ package com.habin.MovieAPP.entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -36,6 +37,7 @@ import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -68,7 +70,7 @@ public class Movie extends BaseEntity {
     private String movieNm; // 제목
 
     @ManyToOne(fetch = FetchType.LAZY) // N : 1 외래키
-	@JoinColumn(nullable = false, name = "director", referencedColumnName = "directorNm")
+	@JoinColumn(nullable = false, name = "directorId", referencedColumnName = "directorId")
     private Director director; // 감독
 
     @JsonManagedReference
@@ -82,10 +84,12 @@ public class Movie extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private Nationality nationality; // 국적
 
-    @ElementCollection(targetClass = Genre.class)
-    @CollectionTable
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "VIEW_MOVIE_GENRE")
+    @Builder.Default
+    @Column(length = 15, nullable = false)
 	@Enumerated(EnumType.STRING)
-    private List<Genre> genre; // 장르
+    private List<Genre> genre = new ArrayList<>(); // 장르
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -54,14 +55,16 @@ public class User extends BaseEntity implements UserDetails {
 	@Column(length = 20)
     private String userId; // 아이디
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String userPw; // 비밀번호
     
-    @Column(nullable = false)
+    @Column(nullable = false, length = 5)
     private String userNm; // 이름
 
     @ElementCollection(fetch = FetchType.LAZY)
+	@CollectionTable(name = "VIEW_ROLE")
 	@Builder.Default
+	@Column(nullable = false, length = 15)
 	@Enumerated(EnumType.STRING)
 	private List<Role> roles = new ArrayList<>();
  

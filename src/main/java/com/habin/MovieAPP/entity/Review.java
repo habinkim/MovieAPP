@@ -46,11 +46,15 @@ public class Review extends BaseEntity {
     private Long revId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = true, name = "movie", referencedColumnName = "movieId")
+    @JoinColumn(nullable = false, name = "movieId", referencedColumnName = "movieId")
     private Movie movie;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Rating rating;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(nullable = true, name = "scrId", referencedColumnName = "scrId")
+    private Screening screening;
     
 }
