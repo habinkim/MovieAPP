@@ -1,4 +1,4 @@
-package com.habin.MovieAPP.module.security;
+package com.habin.MovieAPP.module.config;
 
 import java.util.Arrays;
 

@@ -1,0 +1,7 @@
+FROM ubuntu
+LABEL Habin Kim "danny9643@naver.com"
+RUN apt-get update
+RUN apt-get install -y nginx
+VOLUME [/home/habin/]
+WORKDIR /etc/nginx 
+EXPOSE 8080

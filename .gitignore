@@ -6,6 +6,7 @@ build/
 **/src/test/**/build/
 **/src/main/generated/
 **/src/main/resources/application.yml
+**/src/test/java/com/habin/MovieAPP/JasyptEncryptTest.java
 
 ### STS ###
 .apt_generated
