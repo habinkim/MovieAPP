@@ -1,0 +1,74 @@
+spring:
+    devtools:
+        restart:
+            enabled: true
+    output:
+        ansi:
+            enabled: ALWAYS
+    datasource:
+        url: jdbc:mariadb://112.173.81.154:3306/Movie?useSSL=false&useUnicode=true&characterEncoding=utf8_general_ci
+        username: habin
+        password: ENC(idogQeXU7OZWQCCPfx+1AWxm50UQZxgl71qXpKFATVE=)
+        driver-class-name: org.mariadb.jdbc.Driver
+        initialization-mode: always
+        hikari:
+            maximum-pool-size: 60
+            max-lifetime : 300000
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        show-sql: false
+        hibernate:
+            ddl-auto: update
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+            use-new-id-generator-mappings: true
+        properties:
+            hibernate:
+                show-sql: false
+    jackson:
+        serialization:
+            WRITE_DATES_AS_TIMESTAMPS: false
+    config:
+        activate:
+            on-profile: prod
+    http:
+        multipart:
+            enabled: true
+    servlet:
+        multipart:
+            max-file-size: 100MB
+            max-request-size: 100MB
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: off
+                type: trace
+server:
+#    address: 172.30.1.52
+    port: 3124
+    compression:
+        enabled: true
+    shutdown: graceful
+custom:
+    path:
+        upload-images: '/home/habin/upload'
+jasypt:
+    encryptor:
+        bean: jasyptStringEncryptor
+
+---
+
+spring:
+    config:
+        activate:
+            on-profile: batch
+    batch:
+        job:
+            names: ${job.name:NONE}
+    datasource:
+        url: jdbc:mariadb://112.173.81.154:3306/Batch?useSSL=false&useUnicode=true&characterEncoding=utf8_general_ci
+        username: habin
+        password: ENC(idogQeXU7OZWQCCPfx+1AWxm50UQZxgl71qXpKFATVE=)
+        driver-class-name: org.mariadb.jdbc.Driver
+        initialization-mode: always
