@@ -1,0 +1,261 @@
+{
+    "Query": "",
+    "KMAQuery": "극 영화 극영화",
+    "TotalCount": 25856,
+    "Data": [
+        {
+            "CollName": "kmdb_new2",
+            "TotalCount": 25856,
+            "Count": 500,
+            "Result": [
+                {
+                    "DOCID": "K02356",
+                    "movieId": "K",
+                    "movieSeq": "02356",
+                    "title": " 신입사원 용팔이",
+                    "titleEng": "Newly-employed Yong-Pal(Sin-ibsa-won Yongpal-i)",
+                    "titleOrg": "",
+                    "titleEtc": "신입사원용팔이^신입사원 용팔이^신입사원용팔이, 사진사용팔이^Newly-employed Yong-Pal(Sin-ibsa-won Yongpal-i)^사진사 용팔이",
+                    "prodYear": "1971",
+                    "directors": {
+                        "director": [
+                            {
+                                "directorNm": "설태호",
+                                "directorEnNm": "Sul Tai-ho",
+                                "directorId": "00001391"
+                            }
+                        ]
+                    },
+                    "actors": {
+                        "actor": [
+                            {
+                                "actorNm": "박노식",
+                                "actorEnNm": "Park Nou-sik",
+                                "actorId": "00000747"
+                            },
+                            {
+                                "actorNm": "장혁",
+                                "actorEnNm": "Chang Hyeok",
+                                "actorId": "00004216"
+                            },
+                            {
+                                "actorNm": "윤연경",
+                                "actorEnNm": "Yun Yeon-gyeong",
+                                "actorId": "00004414"
+                            },
+                            {
+                                "actorNm": "황해",
+                                "actorEnNm": "Hwang Hae",
+                                "actorId": "00000656"
+                            },
+                            {
+                                "actorNm": "김칠성",
+                                "actorEnNm": "Kim Chil-seong",
+                                "actorId": "00005017"
+                            },
+                            {
+                                "actorNm": "최준",
+                                "actorEnNm": "Choe Jun",
+                                "actorId": "00005227"
+                            },
+                            {
+                                "actorNm": "최성웅",
+                                "actorEnNm": "Choe Seong-ung",
+                                "actorId": "00011013"
+                            },
+                            {
+                                "actorNm": "이강조",
+                                "actorEnNm": "Lee Kang-jo",
+                                "actorId": "00006352"
+                            },
+                            {
+                                "actorNm": "심상현",
+                                "actorEnNm": "Sim Sang-hyeon",
+                                "actorId": "00006466"
+                            },
+                            {
+                                "actorNm": "장정국",
+                                "actorEnNm": "Jang Jeong-kuk",
+                                "actorId": "00000887"
+                            }
+                        ]
+                    },
+                    "nation": "대한민국",
+                    "company": "대양영화사",
+                    "plots": {
+                        "plot": [
+                            {
+                                "plotLang": "한국어",
+                                "plotText": "사진사 용팔은 사진기사 모집광고를 보고 유령회사에 입사하는데, 사장의 명으로 꽃가게에서 화분을 사온다는 것이 아편밀수배들이 헤로인을 숨겨놓은 화분을 가져왔다. 그후로 용팔은 영문도 모르고 마약밀수범들에게 쫓기는 몸이 된다. 그런데 용팔은 자신도 모르는 사이에 경찰의 수사대상에 오르지만 기지와 용기로 마약밀수범을 잡아 경찰에 인계하고 표창을 받는다."
+                            },
+                            {
+                                "plotLang": "영어",
+                                "plotText": "Yong-Pal, a photographer, gets a job in some bogus company. He buys jardiniere as ordered by his boss, but there was a pack of heroin hidden in the jardiniere. Yong-Pal, not knowing what's going on, gets chased by a band of drug traffickers. But in the end, witty Yong-Pal catches the drug smugglers and hands them over to the police which cites him for his bravery."
+                            }
+                        ]
+                    },
+                    "runtime": "93",
+                    "rating": "미성년자관람불가",
+                    "genre": "코메디",
+                    "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/K/02356"
+                },
+                {
+                    "DOCID": "K02334",
+                    "movieId": "K",
+                    "movieSeq": "02334",
+                    "title": " 초원의 빛",
+                    "titleEng": "Light in the Field (Cho-won-ui bich)",
+                    "titleOrg": "",
+                    "titleEtc": "초원의빛^초원의 빛^초원의빛^Light in the Field (Cho-won-ui bich)^석양의 오두막",
+                    "prodYear": "1971",
+                    "directors": {
+                        "director": [
+                            {
+                                "directorNm": "이경윤",
+                                "directorEnNm": "Lee Gyeong-yun",
+                                "directorId": "00006256"
+                            }
+                        ]
+                    },
+                    "actors": {
+                        "actor": [
+                            {
+                                "actorNm": "윤정희",
+                                "actorEnNm": "Yoon Jeong-hee",
+                                "actorId": "00004050"
+                            },
+                            {
+                                "actorNm": "최무룡",
+                                "actorEnNm": "Choi Moo-ryong",
+                                "actorId": "00000073"
+                            },
+                            {
+                                "actorNm": "김희갑",
+                                "actorEnNm": "Kim Hee-kap",
+                                "actorId": "00001808"
+                            },
+                            {
+                                "actorNm": "황정순",
+                                "actorEnNm": "Hwang Jung-seun",
+                                "actorId": "00000654"
+                            },
+                            {
+                                "actorNm": "이대엽",
+                                "actorEnNm": "Lee Dae-yub",
+                                "actorId": "00000530"
+                            },
+                            {
+                                "actorNm": "김아라",
+                                "actorEnNm": "Kim A-ra",
+                                "actorId": "00212687"
+                            },
+                            {
+                                "actorNm": "양훈",
+                                "actorEnNm": "Yang Hun",
+                                "actorId": "00000070"
+                            },
+                            {
+                                "actorNm": "최창호",
+                                "actorEnNm": "Choe Chang-ho",
+                                "actorId": "00005240"
+                            },
+                            {
+                                "actorNm": "정기철",
+                                "actorEnNm": "Jung Ki-chul",
+                                "actorId": "00002533"
+                            },
+                            {
+                                "actorNm": "이승철",
+                                "actorEnNm": "",
+                                "actorId": ""
+                            },
+                            {
+                                "actorNm": "김소저",
+                                "actorEnNm": "Kim So-jeo",
+                                "actorId": "00007246"
+                            },
+                            {
+                                "actorNm": "라정옥",
+                                "actorEnNm": "Ra Jeong-ok",
+                                "actorId": "00004854"
+                            },
+                            {
+                                "actorNm": "권일정",
+                                "actorEnNm": "Gwon Il-jeong",
+                                "actorId": "00006839"
+                            },
+                            {
+                                "actorNm": "이예성",
+                                "actorEnNm": "Lee Yae-sung",
+                                "actorId": "00005388"
+                            },
+                            {
+                                "actorNm": "임생출",
+                                "actorEnNm": "Im Saeng-chul",
+                                "actorId": "00005213"
+                            },
+                            {
+                                "actorNm": "손전",
+                                "actorEnNm": "Son Jun",
+                                "actorId": "00000382"
+                            },
+                            {
+                                "actorNm": "김경오",
+                                "actorEnNm": "Kim Gyeong-o",
+                                "actorId": "00006563"
+                            },
+                            {
+                                "actorNm": "이승현",
+                                "actorEnNm": "Lee Seung-hyun",
+                                "actorId": "00004097"
+                            },
+                            {
+                                "actorNm": "최영후",
+                                "actorEnNm": "Choe Yeong-hu",
+                                "actorId": "00012387"
+                            },
+                            {
+                                "actorNm": "추봉",
+                                "actorEnNm": "Chu Bong",
+                                "actorId": "00000763"
+                            },
+                            {
+                                "actorNm": "최재호",
+                                "actorEnNm": "Choe Jae-ho",
+                                "actorId": "00007867"
+                            },
+                            {
+                                "actorNm": "김웅",
+                                "actorEnNm": "Kim Ung",
+                                "actorId": "00004780"
+                            },
+                            {
+                                "actorNm": "태일",
+                                "actorEnNm": "Han Tae-il",
+                                "actorId": "00000669"
+                            }
+                        ]
+                    },
+                    "nation": "대한민국",
+                    "company": "아성영화주식회사",
+                    "plots": {
+                        "plot": [
+                            {
+                                "plotLang": "한국어",
+                                "plotText": "집안이 가난해서 국민학교를 퇴학당한 사용은 제대후 어린시절부터 단짝인 순남과 결혼하나 가난은 여전하다. 그래서 사용은 3년을 기약하고 구두쇠 왕서방의 집으로 머슴살이를 가고 순남은 짖궂은 동창생 덕구의 집으로 식모살이를 간다. 3년 후 약간의 돈을 마련한 사용과 순남은 200평 정도의 땅을 장만하고 태어난 아들과 함께 경작을 시작하나 사용이 폐병에 걸려 집안에 다시 근심이 찾아온다. 순남의 극진한 간호로 병을 고친 사용은 다시 활기를 찾고 일을 시작하며 이때 정부에서 농촌부흥의 시범사업으로 사용에게 원조를 해준다."
+                            },
+                            {
+                                "plotLang": "영어",
+                                "plotText": "Sa-Yong who couldn't finish the elementary school due to his family's poverty marries his childhood friend Sun-Nam after he is discharged from his military duty. He decides to work as a servant in stingy Wang's house for three years, while his wife works as a housemaid in her friend Deok-Ku's house. Three years later, they buy about 0.2 acre of land with money they collected for the past three years, and grow crops. Sun-Nam gives birth to a child, but Sa-Yong gets pulmonary tuberculosis. Sun-Nam takes good care of her husband, which results in his complete recovery. The government also aids Sa-Yong with his cash crop cultivation."
+                            }
+                        ]
+                    },
+                    "runtime": "88",
+                    "rating": "국민학생이상관람가",
+                    "genre": "드라마,계몽,멜로/로맨스",
+                    "kmdbUrl": "https://www.kmdb.or.kr/db/kor/detail/movie/K/02334"
+                }
+            ]
+        }
+    ]
+}

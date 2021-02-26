@@ -17,13 +17,12 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @Configuration
@@ -40,7 +39,7 @@ public class HomeController {
     }
 
     @PostMapping(value = "/api", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String apiTest(@RequestBody Map<String, Object> params) throws JsonProcessingException {
+    public HashMap<String, Object> apiTest(@RequestBody Map<String, Object> params) throws JsonProcessingException {
 
         // HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
         // factory.setConnectTimeout(5000);
@@ -54,7 +53,9 @@ public class HomeController {
         .requestFactory(() -> new HttpComponentsClientHttpRequestFactory())
         .setConnectTimeout(Duration.ofMillis(5000))
         .setReadTimeout(Duration.ofMillis(5000))
-        .additionalMessageConverters(new StringHttpMessageConverter(StandardCharsets.UTF_8))
+        .additionalMessageConverters(new StringHttpMessageConverter(StandardCharsets.UTF_8), 
+                                    new MappingJackson2HttpMessageConverter()
+        )
         .build();
 
         String url = new StringBuilder()
@@ -62,16 +63,30 @@ public class HomeController {
                         .append("?")
                         .append("key=2XG52324VM21X23Q10WP")
                         .append("&")
+                        .append("listCount=500")
+                        .append("&")
+                        .append("startCount=1500")
+                        .append("&")
+                        .append("ratedYn=y")
+                        .append("&")
+                        .append("detail=N")
+                        .append("&")
                         .append("collection=kmdb_new2")
                         .toString();
 
-        UriComponents uri = UriComponentsBuilder.fromHttpUrl(url).build();
-        ResponseEntity<HashMap> resultMap = restTemplate.exchange(uri.toString(), HttpMethod.GET, entity, HashMap.class);
+        HashMap<String, Object> result = new HashMap<String, Object>();
+        String jsonInString = "";
 
+        ResponseEntity<Map> resultMap = restTemplate.exchange(url, HttpMethod.GET, entity, Map.class);
+        result.put("statusCode", resultMap.getStatusCodeValue()); //http status code를 확인
+        result.put("header", resultMap.getHeaders()); //헤더 정보 확인
+        result.put("body", resultMap.getBody()); //실제 데이터 정보 확인
+
+        //데이터를 제대로 전달 받았는지 확인 string형태로 파싱해줌
         ObjectMapper mapper = new ObjectMapper();
-        String jsonString = mapper.writeValueAsString(resultMap.getBody());
+        jsonInString = mapper.writeValueAsString(resultMap.getBody());
 
-        return jsonString;
+        return result;
 
     }
     
