@@ -1,5 +1,7 @@
 package com.habin.MovieAPP.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,10 +13,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ActorB {
 
-    private String actorNm;
-    private String actorEnNm;
-    private String actorId;
+    public String actorNm;
+    public String actorEnNm;
+    public String actorId;
 
 }

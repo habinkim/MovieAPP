@@ -2,6 +2,8 @@ package com.habin.MovieAPP.controller;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,11 +15,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MovieData {
 
-    private String CollName;
-    private Long TotalCount;
-    private Long Count;
-    private List<MovieResult> Result;
+    public String CollName;
+    public Long TotalCount;
+    public Long Count;
+    public List<MovieResult> Result;
 
 }

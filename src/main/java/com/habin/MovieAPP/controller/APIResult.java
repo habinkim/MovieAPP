@@ -2,6 +2,8 @@ package com.habin.MovieAPP.controller;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,11 +15,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class APIResult {
 
-    private String Query;
-    private String KMAQuery;
-    private Long TotalCount;
-    private List<MovieData> Data;
+    public String Query;
+    public String KMAQuery;
+    public Long TotalCount;
+    public List<MovieData> Data;
     
 }

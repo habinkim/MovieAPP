@@ -1,5 +1,7 @@
 package com.habin.MovieAPP.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,24 +13,25 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MovieResult {
 
-    private String DOCID;
-    private String movieId;
-    private String movieSeq;
-    private String title;
-    private String titleEng;
-    private String titleOrg;
-    private String titleEtc;
-    private String prodYear;
-    private DirectorA directors;
-    private ActorA actors;
-    private String nation;
-    private String company;
-    private PlotA plots;
-    private String runtime;
-    private String rating;
-    private String genre;
-    private String kmdbUrl;
+    public String DOCID;
+    public String movieId;
+    public String movieSeq;
+    public String title;
+    public String titleEng;
+    public String titleOrg;
+    public String titleEtc;
+    public String prodYear;
+    public DirectorA directors;
+    public ActorA actors;
+    public String nation;
+    public String company;
+    public PlotA plots;
+    public String runtime;
+    public String rating;
+    public String genre;
+    public String kmdbUrl;
 
 }

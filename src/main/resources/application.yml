@@ -45,7 +45,7 @@ logging:
                 SQL: off
                 type: trace
 server:
-#    address: 172.30.1.52
+    # address: 172.30.1.52
     port: 3124
     compression:
         enabled: true
